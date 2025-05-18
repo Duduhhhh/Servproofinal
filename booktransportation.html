@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Transportation - ServPro Consolidated Inc.</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imgs/Servpro Travels Logo.png" alt="ServPro Logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About</a>
+            <div class="dropdown">
+                <a href="#" class="active">Services <span class="dropdown-arrow">▾</span></a>
+                <div class="dropdown-content">
+                    <a href="airconditioners.html">Air Conditioner</a>
+                    <a href="travelandtour.html" class="active">Travel & Tours</a>
+                </div>
+            </div>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact" class="contact-btn">Contact Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="transportation-booking-container">
+            <div class="booking-header">
+                <h1>Book Transportation</h1>
+                <p>Fill out the form below to book your transportation</p>
+            </div>
+
+            <div class="booking-content">
+                <div class="booking-form">
+                    <form id="transportationForm">
+                        <div class="form-group">
+                            <label for="province">Select Province</label>
+                            <select id="province" name="province" required>
+                                <option value="">Select a province</option>
+                                <option value="bicol">Bicol Region</option>
+                                <option value="iloilo">Iloilo</option>
+                                <option value="camsur">Camarines Sur</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vehicleType">Vehicle Type</label>
+                            <select id="vehicleType" name="vehicleType" required>
+                                <option value="">Select vehicle type</option>
+                                <option value="van">Van (10-12 pax)</option>
+                                <option value="bus">Bus (45 pax)</option>
+                                <option value="car">Car (4 pax)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pickupPoint">Pickup Point</label>
+                            <select id="pickupPoint" name="pickupPoint" required>
+                                <option value="">Select pickup point</option>
+                                <option value="legazpi-airport">Legazpi Airport</option>
+                                <option value="naga-city">Naga City</option>
+                                <option value="sorsogon-city">Sorsogon City</option>
+                                <option value="iloilo-airport">Iloilo Airport</option>
+                                <option value="iloilo-city-port">Iloilo City Port</option>
+                                <option value="sm-city-iloilo">SM City Iloilo</option>
+                                
+                                <!-- Pickup points will be populated based on province selection -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pickupDate">Pickup Date</label>
+                            <input type="date" id="pickupDate" name="pickupDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="returnDate">Return Date</label>
+                            <input type="date" id="returnDate" name="returnDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="passengers">Number of Passengers</label>
+                            <input type="number" id="passengers" name="passengers" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specialRequests">Special Requests</label>
+                            <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
+                        </div>
+
+                        <div class="price-summary">
+                            <h3>Price Summary</h3>
+                            <div class="price-details">
+                                <div class="price-item">
+                                    <span>Vehicle Rental</span>
+                                    <span id="vehiclePrice">₱0</span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Number of Days</span>
+                                    <span id="numberOfDays">0</span>
+                                </div>
+                                <div class="price-item total">
+                                    <span>Total Amount</span>
+                                    <span id="totalAmount">₱0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Book Now</button>
+                    </form>
+                </div>
+
+                <div class="booking-info">
+                    <div class="info-card">
+                        <h3>Transportation Rates</h3>
+                        <div class="rate-list">
+                            <div class="rate-item">
+                                <h4>Van (10-12 pax)</h4>
+                                <ul>
+                                    <li>Bicol Region: ₱8,000/day</li>
+                                    <li>Iloilo: ₱7,500/day</li>
+                                    <li>Camarines Sur: ₱7,000/day</li>
+                                </ul>
+                            </div>
+                            <div class="rate-item">
+                                <h4>Bus (45 pax)</h4>
+                                <ul>
+                                    <li>Bicol Region: ₱15,000/day</li>
+                                    <li>Iloilo: ₱14,000/day</li>
+                                    <li>Camarines Sur: ₱13,000/day</li>
+                                </ul>
+                            </div>
+                            <div class="rate-item">
+                                <h4>Car (4 pax)</h4>
+                                <ul>
+                                    <li>Bicol Region: ₱4,500/day</li>
+                                    <li>Iloilo: ₱4,000/day</li>
+                                    <li>Camarines Sur: ₱3,800/day</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Pickup Points</h3>
+                        <div class="pickup-list">
+                            <div class="pickup-item">
+                                <h4>Bicol Region</h4>
+                                <ul>
+                                    <li>Legazpi Airport</li>
+                                    <li>Naga City</li>
+                                    <li>Sorsogon City</li>
+                                </ul>
+                            </div>
+                            <div class="pickup-item">
+                                <h4>Iloilo</h4>
+                                <ul>
+                                    <li>Iloilo Airport</li>
+                                    <li>Iloilo City Port</li>
+                                    <li>SM City Iloilo</li>
+                                </ul>
+                            </div>
+                            <div class="pickup-item">
+                                <h4>Camarines Sur</h4>
+                                <ul>
+                                    <li>Naga Airport</li>
+                                    <li>SM City Naga</li>
+                                    <li>Naga City Terminal</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        .transportation-booking-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .booking-header h1 {
+            color: #0057B8;
+            margin-bottom: 10px;
+        }
+
+        .booking-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .booking-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .price-summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .price-summary h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .price-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .price-item.total {
+            font-weight: 700;
+            color: #0057B8;
+            border-bottom: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #0057B8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #003d82;
+        }
+
+        .booking-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-card h3 {
+            color: #0057B8;
+            margin-bottom: 15px;
+        }
+
+        .rate-list,
+        .pickup-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .rate-item h4,
+        .pickup-item h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .rate-item ul,
+        .pickup-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rate-item li,
+        .pickup-item li {
+            padding: 5px 0;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .booking-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0057B8;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #003d82;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top i {
+            font-size: 1.2em;
+        }
+    </style>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const provinceSelect = document.getElementById('province');
+            const vehicleTypeSelect = document.getElementById('vehicleType');
+            const pickupPointSelect = document.getElementById('pickupPoint');
+            const pickupDateInput = document.getElementById('pickupDate');
+            const returnDateInput = document.getElementById('returnDate');
+            const vehiclePriceSpan = document.getElementById('vehiclePrice');
+            const numberOfDaysSpan = document.getElementById('numberOfDays');
+            const totalAmountSpan = document.getElementById('totalAmount');
+
+            // Set minimum date for pickup and return
+            const today = new Date().toISOString().split('T')[0];
+            pickupDateInput.min = today;
+            returnDateInput.min = today;
+
+            // Update return date minimum when pickup date changes
+            pickupDateInput.addEventListener('change', function() {
+                returnDateInput.min = this.value;
+                if (returnDateInput.value && returnDateInput.value < this.value) {
+                    returnDateInput.value = this.value;
+                }
+                calculateTotal();
+            });
+
+            // Calculate total when return date changes
+            returnDateInput.addEventListener('change', calculateTotal);
+
+            // Update pickup points based on province selection
+            provinceSelect.addEventListener('change', function() {
+                const province = this.value;
+                pickupPointSelect.innerHTML = '<option value="">Select pickup point</option>';
+                
+                if (province === 'bicol') {
+                    addPickupPoint('Legazpi Airport');
+                    addPickupPoint('Naga City');
+                    addPickupPoint('Sorsogon City');
+                } else if (province === 'iloilo') {
+                    addPickupPoint('Iloilo Airport');
+                    addPickupPoint('Iloilo City Port');
+                    addPickupPoint('SM City Iloilo');
+                } else if (province === 'camsur') {
+                    addPickupPoint('Naga Airport');
+                    addPickupPoint('SM City Naga');
+                    addPickupPoint('Naga City Terminal');
+                }
+            });
+
+            function addPickupPoint(point) {
+                const option = document.createElement('option');
+                option.value = point.toLowerCase().replace(/\s+/g, '-');
+                option.textContent = point;
+                pickupPointSelect.appendChild(option);
+            }
+
+            // Calculate total amount
+            function calculateTotal() {
+                const province = provinceSelect.value;
+                const vehicleType = vehicleTypeSelect.value;
+                const pickupDate = new Date(pickupDateInput.value);
+                const returnDate = new Date(returnDateInput.value);
+
+                if (!province || !vehicleType || !pickupDateInput.value || !returnDateInput.value) {
+                    return;
+                }
+
+                const days = Math.ceil((returnDate - pickupDate) / (1000 * 60 * 60 * 24)) + 1;
+                numberOfDaysSpan.textContent = days;
+
+                let pricePerDay = 0;
+                if (province === 'bicol') {
+                    if (vehicleType === 'van') pricePerDay = 8000;
+                    else if (vehicleType === 'bus') pricePerDay = 15000;
+                    else if (vehicleType === 'car') pricePerDay = 4500;
+                } else if (province === 'iloilo') {
+                    if (vehicleType === 'van') pricePerDay = 7500;
+                    else if (vehicleType === 'bus') pricePerDay = 14000;
+                    else if (vehicleType === 'car') pricePerDay = 4000;
+                } else if (province === 'camsur') {
+                    if (vehicleType === 'van') pricePerDay = 7000;
+                    else if (vehicleType === 'bus') pricePerDay = 13000;
+                    else if (vehicleType === 'car') pricePerDay = 3800;
+                }
+
+                const total = pricePerDay * days;
+                vehiclePriceSpan.textContent = `₱${pricePerDay.toLocaleString()}/day`;
+                totalAmountSpan.textContent = `₱${total.toLocaleString()}`;
+            }
+
+            // Update total when vehicle type changes
+            vehicleTypeSelect.addEventListener('change', calculateTotal);
+
+            // Form submission
+            document.getElementById('transportationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to your server
+                alert('Booking request submitted successfully! We will contact you shortly.');
+                this.reset();
+            });
+
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('backToTop');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Show button when scrolling down
+                if (scrollTop > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+
+                // Hide button when scrolling up
+                if (scrollTop < lastScrollTop) {
+                    backToTopButton.classList.remove('visible');
+                }
+
+                lastScrollTop = scrollTop;
+            });
+
+            // Scroll to top when button is clicked
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
